@@ -34,15 +34,16 @@ desc "Release version #{Workarea::ProductVideos::VERSION} of the gem"
 task :release do
   host = "https://#{ENV['BUNDLE_GEMS__WEBLINC__COM']}@gems.weblinc.com"
 
-  Rake::Task["workarea:changelog"].execute
-  system "git add CHANGELOG.md"
-  system 'git commit -m "Update CHANGELOG"'
-  system "git push origin HEAD"
+  #Rake::Task["workarea:changelog"].execute
+  #system "git add CHANGELOG.md"
+  #system 'git commit -m "Update CHANGELOG"'
+  #system "git push origin HEAD"
 
   system "git tag -a v#{Workarea::ProductVideos::VERSION} -m 'Tagging #{Workarea::ProductVideos::VERSION}'"
   system "git push --tags"
 
   system "gem build workarea-product_videos.gemspec"
+  system "gem push workarea-product_videos-#{Workarea::ProductVideos::VERSION}.gem"
   system "gem push workarea-product_videos-#{Workarea::ProductVideos::VERSION}.gem --host #{host}"
   system "rm workarea-product_videos-#{Workarea::ProductVideos::VERSION}.gem"
 end
