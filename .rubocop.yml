@@ -1,0 +1,7 @@
+inherit_from: .rails-rubocop.yml
+
+AllCops:
+  Exclude:
+    - 'test/dummy/**/*'
+    - 'lib/product_videos.rb'
+    - 'lib/product_videos/**/*'

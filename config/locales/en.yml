@@ -1,0 +1,41 @@
+en:
+  workarea:
+    admin:
+      catalog_product_videos:
+        edit:
+          extracted_data: Extracted Data
+          heading: Edit Video
+          title: Edit Video for %{product}
+          update_button: Save changes
+        fields:
+          aspect_ratio: Aspect Ratio
+          display_type: Display Type
+          display_type_info_html: "<p><strong>Embedded:</strong> Embeds the video directly on the detail page.</p> <p><strong>Dialog:</strong> Opens the video in a dialog</p> <p><strong>Thumbnail:</strong> Adds thumbnail to alternate images, video plays in dialog when thumbnail is clicked. If no thumbnail is provided the primary product image will be used.</p>"
+          embed_code: Embed Code
+          host: Host
+          thumbnail: Thumbnail
+          url: URL
+          video_id: Embed ID
+        flash_messages:
+          created: Your video has been added.
+          deleted: Your video has been removed.
+          error: Your video was not saved.
+          updated: Your video has been updated.
+        index:
+          add_new: Add New
+          heading: Manage Videos
+          title: Manage Videos for %{product}
+        new:
+          button: Add video
+          heading: New Video
+          title: New Video for %{product}
+      catalog_products:
+        cards:
+          videos:
+            add_button: Add a Video
+            manage_button: Manage Videos
+            no_videos: This product has no videos.
+            title: Videos
+    storefront:
+      products:
+        watch_this_video: Watch this video

@@ -1,0 +1,19 @@
+module Workarea
+  decorate Storefront::ProductsController, with: :product_videos do
+    def video
+      model = Catalog::Product.find_by(id: params[:product_id])
+      raise InvalidDisplay unless model.active? || current_user.try(:admin?)
+
+      @product = Storefront::ProductViewModel.wrap(
+        model,
+        view_model_options
+      )
+
+      video = @product.videos.detect{ |v| v.id.to_s == params[:video_id] }
+      @video = Storefront::ProductVideoViewModel.wrap(
+        video,
+        view_model_options
+      )
+    end
+  end
+end

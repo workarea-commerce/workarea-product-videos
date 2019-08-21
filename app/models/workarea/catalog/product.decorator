@@ -1,0 +1,7 @@
+module Workarea
+  decorate Catalog::Product, with: :product_videos do
+    decorated do
+      embeds_many :videos, class_name: 'Workarea::Catalog::ProductVideo'
+    end
+  end
+end

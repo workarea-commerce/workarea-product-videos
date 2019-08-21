@@ -1,0 +1,9 @@
+module Workarea
+  decorate Storefront::ProductViewModel, with: :product_videos do
+    def videos
+      @videos ||= Storefront::ProductVideoViewModel.wrap(
+        model.videos
+      )
+    end
+  end
+end

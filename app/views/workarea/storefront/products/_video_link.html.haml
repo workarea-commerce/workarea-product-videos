@@ -1,0 +1,8 @@
+- if @product.videos.present?
+  - @product.videos.each do |video|
+    .product-video
+      - if video.display_option == 'dialog'
+        = link_to t('workarea.storefront.products.watch_this_video'), product_video_path(@product.id, video.id), data: { dialog_button: { dialogOptions: { uiDialogOptions: { dialogClass: 'ui-dialog-video' } } } }, class: "product-video__dialog-link"
+      - elsif video.display_option == 'embedded'
+        .product-video__container
+          %iframe.product-video__iframe{ video.iframe_attrs }

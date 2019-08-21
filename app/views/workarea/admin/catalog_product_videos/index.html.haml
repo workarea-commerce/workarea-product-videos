@@ -1,0 +1,46 @@
+- @page_title = t('workarea.admin.catalog_product_videos.index.title', product: @product.name)
+
+.product-images.view
+  .view__header
+    .grid.grid--middle
+      .grid__cell.grid__cell--25
+        = render 'workarea/admin/releases/select'
+      .grid__cell.grid__cell--50
+        .view__heading
+          = link_to_index_for(@product)
+          %h1= link_to @product.name, url_for(@product)
+      .grid__cell.grid__cell--25
+        = render_aux_navigation_for(@product)
+
+  .view__container
+    = render_cards_for(@product, :videos)
+
+    .section
+      %h2.view__heading= t('workarea.admin.catalog_product_videos.index.heading')
+      %table.index-table
+        %thead
+          %tr
+            %th= t('workarea.admin.catalog_product_videos.fields.video_id')
+            %th= t('workarea.admin.catalog_product_videos.fields.host')
+            %th= t('workarea.admin.catalog_product_videos.fields.display_type')
+            %th
+        %tbody
+          - @product.videos.each do |video|
+            %tr.index-table__row
+              %td= link_to video[:embed_id], edit_catalog_product_video_path(@product, video)
+              %td= video[:host]
+              %td= video.display_option
+              %td
+                = form_tag catalog_product_video_path(@product, video), method: 'delete', class: 'text-button text-button--destroy' do
+                  = button_tag value: 'delete_video', class: 'text-button text-button--destroy' do
+                    = inline_svg('workarea/admin/icons/delete.svg', class: 'text-button__icon', title: t('workarea.admin.actions.delete'))
+
+        .workflow-bar
+          .grid.grid--right.grid--middle
+            .grid__cell.grid__cell--20
+              = link_to t('workarea.admin.form.cancel'), url_for(@product), class: 'workflow-bar__button workflow-bar__button--delete'
+
+            .grid__cell.grid__cell--80
+              .grid.grid--auto.grid--right.grid--middle
+                .grid__cell
+                  = link_to t('workarea.admin.catalog_product_videos.index.add_new'), new_catalog_product_video_path(@product), class: 'workflow-bar__button workflow-bar__button--create'

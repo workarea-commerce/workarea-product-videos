@@ -1,0 +1,37 @@
+/*------------------------------------*\
+    #PRODUCT-VIDEO
+\*------------------------------------*/
+
+
+$product-video-padding:                 56.25% !default; // 16:9 aspect
+$product-video-width:                   80vw !default;
+$product-video-max-width:               1080px !default;
+
+
+.product-video {
+    position: relative;
+    margin: 0 auto;
+}
+
+.product-video--thumbnail {}
+
+    .product-video__container {
+        position: relative;
+        padding-bottom: $product-video-padding;
+        width: $product-video-width;
+        max-width: $product-video-max-width;
+    }
+
+        .product-video__iframe {
+            position: absolute;
+            width:  100%;
+            height: 100%;
+        }
+
+    .product-video__dialog-link {}
+
+    .product-video__thumbnail-image {}
+
+    .product-video__play-icon {
+        @include center;
+    }

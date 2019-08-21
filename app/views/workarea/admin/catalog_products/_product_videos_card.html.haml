@@ -1,0 +1,21 @@
+.grid__cell
+  .card{ class: card_classes(:videos, local_assigns[:active]) }
+    = link_to catalog_product_videos_path(model), class: 'card__header' do
+      %span.card__header-text= t('workarea.admin.catalog_products.cards.videos.title')
+      = inline_svg 'workarea/admin/icons/video.svg', class: 'card__icon'
+    - if local_assigns[:active].blank?
+      .card__body
+        - if @product.videos.count < 1
+          %p.card__empty-note= t('workarea.admin.catalog_products.cards.videos.no_videos')
+
+          = link_to new_catalog_product_video_path(model), class: 'card__button' do
+            %span.button.button--small= t('workarea.admin.catalog_products.cards.videos.add_button')
+        - else
+          %ul.list-reset
+            - @product.videos.each do |video|
+              %li
+                %strong Embed ID
+                = video[:embed_id]
+
+          = link_to catalog_product_videos_path(model), class: 'card__button' do
+            %span.button.button--small= t('workarea.admin.catalog_products.cards.videos.manage_button')

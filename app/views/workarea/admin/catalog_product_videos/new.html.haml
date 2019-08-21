@@ -1,0 +1,57 @@
+- @page_title = t('workarea.admin.catalog_product_videos.new.title', product: @product.name)
+
+.product-images.view
+  .view__header
+    .grid.grid--middle
+      .grid__cell.grid__cell--25
+        = render 'workarea/admin/releases/select'
+      .grid__cell.grid__cell--50
+        .view__heading
+          = link_to_index_for(@product)
+          %h1= link_to @product.name, url_for(@product)
+      .grid__cell.grid__cell--25
+        = render_aux_navigation_for(@product)
+
+  .view__container
+    = render_cards_for(@product, :videos)
+
+    .section
+      %h2.view__heading= t('workarea.admin.catalog_product_videos.new.heading')
+      .grid
+        .grid__cell.grid__cell--33
+          = form_tag catalog_product_videos_path(@product), method: 'post', multipart: true do
+            .property.property--required
+              = label_tag 'video_embed_code', class: 'property__name' do
+                %span.property__text= t('workarea.admin.catalog_product_videos.fields.embed_code')
+              = text_area_tag 'video[embed_code]', nil, class: 'text-box text-box--i18n text-box--multi-line', required: true
+            .property.property--required
+              = label_tag 'video_display_option', class: 'property__name' do
+                %span.property__text= t('workarea.admin.catalog_product_videos.fields.display_type')
+                = link_to '#display-type-info', data: { tooltip: '' } do
+                  = inline_svg('workarea/admin/icons/help.svg', class: 'svg-icon svg-icon--small svg-icon--blue', title: t('workarea.admin.catalog_product_videos.fields.display_type'))
+                #display-type-info.tooltip-content
+                  %p= t('workarea.admin.catalog_product_videos.fields.display_type_info_html')
+              .value= select_tag 'video[display_option]', options_for_select(Workarea.config.product_videos[:display_options]), id: 'video_display_option', required: true
+
+            .property
+              = label_tag 'video_thumbnail', class: 'property__name' do
+                %span.property__text= t('workarea.admin.catalog_product_videos.fields.thumbnail')
+
+              .asset-picker-field{ data: { asset_picker_field: '' } }
+                .asset-picker-field__cell
+                  = hidden_field_tag 'video[thumbnail]', nil, id: 'video_thumbnail', class: 'text-box text-box--i18n'
+
+                  %span{ data: { asset_name: true } }
+                    = t('workarea.admin.content_blocks.asset.name_missing')
+
+                .asset-picker-field__cell= link_to t('workarea.admin.content_blocks.asset.select_an_asset'), insert_content_assets_path(file_type: 'image'), class: 'text-button', data: { asset_picker_field_open: '', turbolinks: false }
+
+            .workflow-bar
+              .grid.grid--right.grid--middle
+                .grid__cell.grid__cell--20
+                  = link_to t('workarea.admin.form.cancel'), url_for(@product), class: 'workflow-bar__button workflow-bar__button--delete'
+
+                .grid__cell.grid__cell--80
+                  .grid.grid--auto.grid--right.grid--middle
+                    .grid__cell
+                      = button_tag t('workarea.admin.catalog_product_videos.new.button'), value: 'create_video', class: 'workflow-bar__button workflow-bar__button--create'
