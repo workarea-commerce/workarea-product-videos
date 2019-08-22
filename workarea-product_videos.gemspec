@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = Workarea::ProductVideos::VERSION
   s.authors     = ["F.M. Bonnevier"]
   s.email       = ["fbonnevier@weblinc.com"]
-  s.homepage    = "https://stash.tools.weblinc.com/projects/WP/repos/workarea-product-videos/browse"
+  s.homepage    = "https://github.com/workarea-commerce/workarea-product_videos"
   s.summary     = "Product Videos for the Workarea Ecommerce platform"
   s.description = "Adds youtube and vimeo video embedding to products."
 
