@@ -30,6 +30,8 @@
       "expect": true,
       "sinon": true,
       "fixture": true,
-      "chai": true
+      "chai": true,
+      "Vimeo": true,
+      "YT": true
     }
 }
