@@ -13,6 +13,24 @@ service.
 We do not host video content, and therefor do not offer an option to upload a video
 via the admin. All videos must use an embed code.
 
+Getting Started
+--------------------------------------------------------------------------------
+
+Add the gem to your application's Gemfile:
+
+```ruby
+# ...
+gem 'workarea-product_videos'
+# ...
+```
+
+Update your application's bundle.
+
+```bash
+cd path/to/application
+bundle
+```
+
 Display options
 --------------------------------------------------------------------------------
 
@@ -39,49 +57,12 @@ If no thumbnail image is selected the first product image will be used as a fall
 have more than 1 image for the video to display. This could easily be changed in
 implementation, but is not within the scope of this plugin.
 
-Getting Started
+Workarea Commerce Documentation
 --------------------------------------------------------------------------------
 
-This gem contains a rails engine that must be mounted onto a host Rails application.
+See [https://developer.workarea.com](https://developer.workarea.com) for Workarea Commerce documentation.
 
-To access Workarea gems and source code, you must be an employee of WebLinc or a licensed retailer or partner.
-
-Workarea gems are hosted privately at https://gems.weblinc.com/.
-You must have individual or team credentials to install gems from this server. Add your gems server credentials to Bundler:
-
-    bundle config gems.weblinc.com my_username:my_password
-
-Or set the appropriate environment variable in a shell startup file:
-
-    export BUNDLE_GEMS__WEBLINC__COM='my_username:my_password'
-
-Then add the gem to your application's Gemfile specifying the source:
-
-    # ...
-    gem 'workarea-product_videos', source: 'https://gems.weblinc.com'
-    # ...
-
-Or use a source block:
-
-    # ...
-    source 'https://gems.weblinc.com' do
-      gem 'workarea-product_videos'
-    end
-    # ...
-
-Update your application's bundle.
-
-    cd path/to/application
-    bundle
-
-Workarea Platform Documentation
+License
 --------------------------------------------------------------------------------
 
-See [http://developer.weblinc.com](http://developer.weblinc.com) for Workarea platform documentation.
-
-Copyright & Licensing
---------------------------------------------------------------------------------
-
-Copyright WebLinc 2017. All rights reserved.
-
-For licensing, contact sales@workarea.com.
+Workarea Product Videos is released under the [Business Software License](LICENSE)
