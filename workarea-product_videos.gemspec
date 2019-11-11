@@ -7,8 +7,8 @@ require "workarea/product_videos/version"
 Gem::Specification.new do |s|
   s.name        = "workarea-product_videos"
   s.version     = Workarea::ProductVideos::VERSION
-  s.authors     = ["F.M. Bonnevier"]
-  s.email       = ["fbonnevier@weblinc.com"]
+  s.authors     = ["Jeff Yucis"]
+  s.email       = ["jyucis@workarea.com"]
   s.homepage    = "https://github.com/workarea-commerce/workarea-product_videos"
   s.summary     = "Product Videos for the Workarea Ecommerce platform"
   s.description = "Adds youtube and vimeo video embedding to products."
